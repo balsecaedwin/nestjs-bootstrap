@@ -10,7 +10,9 @@ COPY package*.json ./
 COPY ./src ./src
 
 # Install app dependencies and creates a "dist" folder with the production build
-RUN npm ci --quiet && npm run build
+RUN npm ci --quiet
+COPY . .
+RUN npm run build
 
 # Application port
 EXPOSE 3000
